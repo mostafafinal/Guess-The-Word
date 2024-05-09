@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+:root {
+    -primary-color: #f44336;
+}
+
+body {
+    margin: 0;
+    background-color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    margin: 0 0 50px;
+    background-color: white;
+}
+
+ .guess-game {
+    text-align: center;
+    margin: 20px auto;
+    width: 1000px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .game-area {
+        text-align: center;
+    }
+    .key-colors {
+        .key-color {
+            padding: 15px;
+            background-color: white;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            .key {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin-right: 10px;
+                &.in-place {
+                    background-color: #f89e13;
+                }
+                &.not-place {
+                    background-color: #18ba89;
+                }
+                &.no {
+                    background-color: #27303f;
+                }
+            }
+            .key-text {
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+ }
+
+ footer {
+    padding: 20px;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    color: white;
+    text-align: center
+ }

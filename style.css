@@ -4,7 +4,7 @@
     -moz-box-sizing: border-box;
 }
 :root {
-    -primary-color: #f44336;
+    --primary-color: #f44336;
 }
 
 body {
@@ -28,7 +28,52 @@ h1 {
     align-items: flex-start;
     justify-content: space-between;
     .game-area {
-        text-align: center;
+        .inputs {
+            & > div {
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                span {
+                    font-size: 30px;
+                    font-weight: bold;
+                    margin-right: 15px;
+                }
+                input {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 5px;
+                    font-size: 50px;
+                    text-align: center;
+                    border: none;
+                    border-bottom : 3px solid #333;
+                    caret-color: var(--primary-color);
+                    &:focus {
+                        outline-color: #ccc;
+                    }
+                    &.in-place {
+                        background-color: #f89e13;
+                        border-color: #f89e13;
+                        color: white;
+                    }
+                    &.not-place {
+                        background-color: #18ba89;
+                        border-color: #18ba89;
+                        color: white;
+                    }
+                    &.no {
+                        background-color: #27303f;
+                        border-color: #27303f;
+                        color: white;
+                    }
+
+                }
+                &.disabled-inputs {
+                    opacity: 0.5;
+                    pointer-events: none;
+                }
+            }
+        }
     }
     .key-colors {
         .key-color {
@@ -69,5 +114,5 @@ h1 {
     width: 100%;
     color: white;
     color: white;
-    text-align: center
+    text-align: center;
  }

@@ -34,8 +34,35 @@ function generateinputs() {
     inputsContainer.appendChild(tryDiv);
   }
   inputsContainer.children[0].children[1].focus();
-}
+  // Setting Inputs Navigation
 
+  // Disabling All Disabled Inputs From Being Navigated
+  const allDisabledInputs = document.querySelectorAll(".disabled-inputs input");
+  allDisabledInputs.forEach((input) => (input.disabled = true));
+
+  // Converting All Inputs' Value To Upper Case
+  const allInputs = document.querySelectorAll("input");
+  allInputs.forEach((input) => {
+    input.addEventListener("input", function () {
+      this.value = this.value.toUpperCase();
+    });
+    // Setting Inputs Key Navigation
+    input.addEventListener("keydown", function (event) {
+      // Getting Each Input Index
+      const currentInputIndex = Array.from(allInputs).indexOf(event.target);
+      // Next Field Focus
+      if (event.key === "ArrowRight") {
+        const nextInput = currentInputIndex + 1;
+        if (nextInput < allInputs.length) allInputs[nextInput].focus();
+      }
+      // Previous Field Focus
+      if (event.key === "ArrowLeft") {
+        const previousInput = currentInputIndex - 1;
+        if (previousInput >= 0) allInputs[previousInput].focus();
+      }
+    });
+  });
+}
 window.onload = function () {
   generateinputs();
 };

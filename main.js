@@ -9,6 +9,12 @@ let numberOfTries = 6;
 let numberOfLetters = 6;
 let currentTry = 1;
 
+// Manage Words
+let guessWord = "";
+const words = ["elzero", "create", "branch", "append", "manage"];
+guessWord = words[Math.trunc(Math.random() * words.length)];
+console.log(guessWord);
+
 function generateinputs() {
   const inputsContainer = document.querySelector(".inputs");
   for (let i = 1; i <= numberOfTries; i++) {
@@ -63,6 +69,31 @@ function generateinputs() {
     });
   });
 }
+
+// Handle Check Button
+const checkWord = document.querySelector(".check");
+checkWord.addEventListener("click", handleWord);
+
+function handleWord() {
+  // inputfield word iteration
+  for (let i = 1; i <= numberOfLetters; i++) {
+    let inputField = document.querySelector(`#guess-${currentTry}-letter-${i}`);
+    let successGuess = true;
+    let letter = inputField.value.toLowerCase();
+    let correetLetter = guessWord[i - 1];
+    // Game Logic
+    if (letter === correetLetter) {
+      inputField.classList.add("yes-in-place");
+    } else if (guessWord.includes(letter) && letter !== "") {
+      inputField.classList.add("not-in-place");
+      successGuess = false;
+    } else {
+      inputField.classList.add("no");
+      successGuess = false;
+    }
+  }
+}
+
 window.onload = function () {
   generateinputs();
 };

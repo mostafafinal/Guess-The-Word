@@ -51,12 +51,12 @@ h1 {
                     &:focus {
                         outline-color: #ccc;
                     }
-                    &.in-place {
+                    &.yes-in-place {
                         background-color: #f89e13;
                         border-color: #f89e13;
                         color: white;
                     }
-                    &.not-place {
+                    &.not-in-place {
                         background-color: #18ba89;
                         border-color: #18ba89;
                         color: white;

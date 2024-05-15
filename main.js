@@ -76,9 +76,9 @@ checkWord.addEventListener("click", handleWord);
 
 function handleWord() {
   // inputfield word iteration
+  let successGuess = true;
   for (let i = 1; i <= numberOfLetters; i++) {
     let inputField = document.querySelector(`#guess-${currentTry}-letter-${i}`);
-    let successGuess = true;
     let letter = inputField.value.toLowerCase();
     let correetLetter = guessWord[i - 1];
     // Game Logic
@@ -91,6 +91,19 @@ function handleWord() {
       inputField.classList.add("no");
       successGuess = false;
     }
+  }
+  // Manage Win
+  if (successGuess) {
+    console.log("Win");
+    checkWord.classList.add("disabled");
+    document.querySelector(
+      ".message"
+    ).innerHTML = `You Won! The Word Is: <span>${guessWord}</span>`;
+    let allTries = document.querySelectorAll(".inputs > div");
+    allTries.forEach((tryDiv) => tryDiv.classList.add("disabled-inputs"));
+    // Manage Loss
+  } else {
+    console.log("Loss");
   }
 }
 
